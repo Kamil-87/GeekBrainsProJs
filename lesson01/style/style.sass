@@ -3,30 +3,45 @@
   padding: 0
 
 body
-  background: #eeeeee
-  font-size: 15px
+  //background: #eeeeee
+  font-size: 14px
 
 a
   text-decoration: none
+  color: inherit
   &:active,
   &:focus
     outline: none
 
 button
-  &:hover
-    cursor: pointer
-  &:active,
+  padding: 0
+  border: none
+  font: inherit
+  color: inherit
+  background-color: transparent
+  &:hover,
   &:focus
-    border: none
-
+    cursor: pointer
+    color: #282A36
+    border-color: currentColor
+    background-color: white
+    outline: none
+  &:active
+    transform: translateY(1px)
+    filter: saturate(150%)
 
 ul>li
   list-style-type: none
 
 .container
   margin: 0 auto
-  max-width: 1170px
+  max-width: 940px
 
+
+.flex-center
+  display: flex
+  justify-content: center
+  align-items: center
 
 .header
   background-color: #555
@@ -65,7 +80,7 @@ ul>li
 
 /**Карточка товара
 main
-  padding-top: 20px
+  padding-top: 50px
 
 .catalog__section
   display: flex
@@ -85,20 +100,151 @@ h1
   flex-direction: column
   align-items: center
   justify-content: space-between
-  font-size: 15px
   &__img
     width: 200px
     height: 200px
+  &__title
+    font-size: 1.2rem
   &__btn
     padding: 15px 35px
     color: #ffffff
     border-radius: 7px
     border: none
     background-color: #ed1c24
-    font-size: 12px
     &:hover
      color: #fff
      background-color: #b11116
 
 .cart__empty
   font-size: 22px
+
+
+
+//-----------------notebook.html-------------------------
+
+.product__wrapper
+  display: flex
+  justify-content: space-between
+  height: 300px
+  width: 100%
+
+.product__gallery
+  display: flex
+  justify-content: space-between
+  width: 60%
+  &__carousel
+    height: 300px
+    width: 80px
+    padding: 10px
+    background-color: #fff
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+  &__image-container
+    height: 350px
+    width: 350px
+    &:hover
+      cursor: url(../image/search-solid50.png), pointer
+  &__img
+    height: 100%
+    width: auto
+
+
+//карусель min img
+.carousel__btn
+  padding: 5px
+  margin: 5px
+.carousel__hidden
+  overflow: hidden
+  height: 180px
+.carousel__list
+  list-style-type: none
+  width: 60px
+  height: 1000px
+  margin: 0
+  padding: 0
+  position: relative
+  transition: margin-top 250ms
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  font-size: 0
+
+.carousel__item
+  & img
+    height: 60px
+    width: 60px
+    cursor: pointer
+  &_active
+    filter: contrast(175%) brightness(95%)
+
+.price__column
+  display: flex
+  flex-direction: column
+  width: 30%
+
+.price__pay
+  background: #f5f5f5
+  padding: 2rem
+  border-radius: 4px
+
+.price__offers
+  font-size: 32px
+  font-weight: 600
+
+.price__button
+  width: 90%
+  margin: 20px 0
+  font-size: 14px
+
+//продукт инфо
+
+.product__info__nav
+  margin-top: 50px
+  margin-bottom: 50px
+  background: #f2f3f5
+  width: 100%
+  height: 60px
+  line-height: 60px
+
+
+//попап
+
+.popup
+  &__full-screen
+    position: fixed
+    z-index: 10001
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    overflow: auto
+    display: flex
+    flex-direction: column
+    align-items: center
+    background: rgba(0,0,0,.8)
+    box-shadow: 0 0 10rem 10rem rgba(0,0,0,.8)
+    transform: translateZ(0)
+  &__block
+
+    position: relative
+    background: #fff
+    width: 70%
+    border-radius: 4px
+    &__close-btn
+      font-size: 25px
+      position: absolute
+      font-family: sans-serif
+      right: 0
+      padding: 15px
+      &:hover
+        color: #ed1c24
+  &__content
+    display: flex
+    flex-direction: column
+    align-items: center
+    & img
+      width: 580px
+
