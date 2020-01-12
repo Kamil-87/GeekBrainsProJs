@@ -29,6 +29,7 @@ class ProductList {
       this.allProducts.push(productObject);
       block.insertAdjacentHTML('beforeend', productObject.render() );
     }
+
   }
 
   totalPrice() {
@@ -36,7 +37,6 @@ class ProductList {
   }
 
   renderConsole() {
-    console.log( this.allProducts );
     console.log(this.totalPrice());
   }
 
