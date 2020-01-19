@@ -27,7 +27,7 @@
                     One: 'Sure. Bye.'
                   `;
 
-        let strReplace = str.replace(/(?<=[^\w])'/g, `"`);
+        let strReplace = str.replace(/(?<=[^\w])'|'$/gm, `"`);
 
         console.log(strReplace);
 
