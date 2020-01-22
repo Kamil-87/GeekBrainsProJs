@@ -82,9 +82,7 @@ img {
     width: 300px;
 }
 
-.invisible{
-    display: none;
-}
+
 .cart-block:before{
     content: '';
     width: 0;
@@ -139,6 +137,9 @@ img {
 .product-quantity {
     margin-top: 15px;
     font-size: 0.75em;
+}
+.product-empty {
+    margin: auto;
 }
 .right-block{
     text-align: right;

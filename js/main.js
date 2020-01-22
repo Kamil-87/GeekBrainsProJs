@@ -4,8 +4,36 @@ const app = new Vue({
   el: '#app',
   data: {
     catalogUrl: '/catalogData.json',
-    products: [],
+    products: [
+      {
+        "id_product": 789,
+        "product_name": "Мышка классическая",
+        "price": 1000
+      },
+      {
+        "id_product": 15,
+        "product_name": "Мышка навороченная",
+        "price": 10000
+      }
+    ],
     imgCatalog: 'https://placehold.it/200x150',
+    searchLine: '',
+    cartUrl: '/addToBasket.json',
+    goods: [
+/*      {
+        "id_product": 789,
+        "product_name": "Мышка классическая",
+        "price": 1000,
+        "quantity": 2
+      },
+      {
+        "id_product": 15,
+        "product_name": "Мышка навороченная",
+        "price": 10000,
+        "quantity": 1,
+      },*/
+    ],
+    isVisibleCart: false,
   },
   methods: {
     getJson(url) {
@@ -16,20 +44,25 @@ const app = new Vue({
           });
     },
     addProduct(product) {
-      console.log(product.id_product);
+      console.log(product['id_product']);
     },
+
+    filterGoods() {
+      console.log('filter');
+      let searchLine = this.searchLine.toLowerCase();
+
+      if(!searchLine) {
+        return this.products;
+      }
+
+      return this.products = this.products
+          .filter(product => product['product_name']
+          .toLowerCase().indexOf(searchLine) !== -1);
+     },
+
   },
-  beforeCreate() {
-    console.log('beforeCreate');
-  },
-  created() {
-    console.log('created');
-  },
-  beforeMount() {
-    console.log('beforeMount');
-  },
+
   mounted() {
-    console.log('mounted');
     this.getJson(`${API + this.catalogUrl}`)
         .then(data => {
           for (let el of data) {
@@ -37,18 +70,20 @@ const app = new Vue({
           }
         });
 
-    setTimeout(() => this.$destroy(), 2000)
   },
-  beforeUpdate() {
-    console.log('beforeUpdate');
-  },
-  updated() {
-    console.log('updated');
-  },
-  beforeDestroy() {
-    console.log('beforeDestroy');
-  },
-  destroyed() {
-    console.log('destroyed');
-  },
+
+  computed: {
+    // filterGoods() {
+    //   let searchLine = this.searchLine.toLowerCase();
+    //   let filter_products = this.products;
+    //
+    //   if(!searchLine) {
+    //     return filter_products;
+    //   }
+    //
+    //   return filter_products = filter_products.filter(product => product['product_name'].toLowerCase().indexOf(searchLine) !== -1);
+    // }
+
+  }
+
 });
