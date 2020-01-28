@@ -12,10 +12,25 @@ button:focus{
     outline: none;
 }
 .logo{
-
     text-transform: uppercase;
     font-weight: bold;
 }
+.list{
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 0 20px;
+    font-size: 0.9em;
+}
+.menu__link{
+    text-decoration: none;
+    color: #fafafa;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+}
+
 .btn-cart{
     background-color: #fafafa;
     padding: 10px 20px;
@@ -150,7 +165,7 @@ img {
     color: #fafafa;
     font-size: 1.2em;
     position: absolute;
-    bottom: 5px;
+    bottom: 15px;
     right: 0;
 }
 .search-form{
